@@ -1,6 +1,3 @@
-element.style {
-}
-
 #okta-sign-in.auth-container.main-container {
     background-color: black;
     border-color: yellow yellow yellow;
@@ -12,8 +9,7 @@ element.style {
     color: greenyellow;
 }
 
-#okta-sign-in {
-}
+
 @media only screen and (max-height: 750px){
 
 #okta-sign-in {
@@ -43,8 +39,6 @@ element.style {
 user agent stylesheet
 div {
     display: block;
-}
-element.style {
 }
 
 #okta-sign-in.auth-container .okta-sign-in-header {
