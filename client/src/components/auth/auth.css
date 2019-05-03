@@ -4,7 +4,7 @@ element.style {
 #okta-sign-in.auth-container.main-container {
     background-color: black;
     border-color: yellow yellow yellow;
-    box-shadow: 0 4px 0 rgba(175, 175, 175, 0.12);
+    box-shadow: 0 4px 0 gray;
 }
 
 #okta-sign-in.auth-container.main-container {
@@ -86,4 +86,5 @@ element.style {
 }
 body{
     background: black;
+    color: green;
 }
