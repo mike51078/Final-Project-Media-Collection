@@ -7,13 +7,13 @@ class Main extends Component {
 				<h1>Media Collection</h1>
 				<ul className="header">
 					<li>
-						<a href="/pages/">Home</a>
+						<a href="/home/">Home</a>
 					</li>
 					<li>
-						<a href="/pages/stuff">Stuff</a>
+						<a href="/profile/">Profile</a>
 					</li>
 					<li>
-						<a href="/pages/contact">Contact</a>
+						<a href="/contact/">Contact</a>
 					</li>
 				</ul>
 				<div className="content" />
