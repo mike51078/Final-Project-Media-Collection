@@ -6,7 +6,7 @@ import Home from './components/Pages/Home';
 import User from './components/Pages/User';
 import Login from './components/auth/login';
 import './App.css';
-import Profile from './components/profile/profile';
+import Profile from './components/Pages/profile';
 
 function onAuthRequired({ history }) {
 	history.push('/login');
