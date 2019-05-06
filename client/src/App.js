@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Security, SecureRoute, ImplicitCallback } from '@okta/okta-react';
-import Navbar from './components/layout/Navbar';
-import Home from './components/Pages/Home';
-import User from './components/Pages/User';
+
+import Navbar from './components/Navbar/Navbar';
+import Home from './components/Home/Home';
+import User from './components/User/User';
 import Login from './components/auth/login';
 import './App.css';
 import Profile from './components/Pages/profile';
@@ -23,7 +24,7 @@ class App extends Component {
 					onAuthRequired={onAuthRequired}
 				>
 					<div className="App">
-						<Navbar />.
+						<Navbar />
 						<Route path="/" exact={true} component={Home} />
 						<SecureRoute path="/User" exact={true} component={User} />
 						<Route path="/login" render={() => <Login baseUrl="https://dev-711148.okta.com" />} />
