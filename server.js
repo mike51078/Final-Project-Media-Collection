@@ -1,4 +1,4 @@
-const user = require ("./api/routes/users")
+const user = require ("./routes/api/users")
 const express = require('express');
 const path = require('path');
 const PORT = process.env.PORT || 3001;
@@ -13,6 +13,8 @@ var db = mongojs(databaseUrl, collections);
 db.on('error', function(error) {
 	console.log('Database Error:', error);
 });
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.get('/', function(req, res) {
 	res.send('Hello World!');

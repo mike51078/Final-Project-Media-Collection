@@ -52,15 +52,17 @@ export default withAuth(
 
     handleSubmit(e) {
       e.preventDefault();
-      console.log(this.state)
+      console.log("hadle-----" + this.state)
       fetch('/api/users', {
         method: 'POST',
         headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
-        body: this.state
+        body: JSON.stringify (this.state)
+
       })
+
         .then(user => {
           this.oktaAuth
             .signIn({
