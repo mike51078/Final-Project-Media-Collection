@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Security, SecureRoute, ImplicitCallback } from '@okta/okta-react';
 
 import Navbar from './components/Navbar/Navbar';
-import Home from './components/Home/Home';
-import User from './components/User/User';
+import Home from './components/Pages/Home';
+import User from './components/Pages/User';
 import Login from './components/auth/login';
 import './App.css';
-import Profile from './components/Pages/profile';
+import Profile from './components/Pages/Profile';
+
 //Some comments here
 function onAuthRequired({ history }) {
 	history.push('/login');
@@ -31,6 +32,9 @@ class App extends Component {
 						<Route path="/implicit/callback" component={ImplicitCallback} />
 					</div>
 				</Security>
+
+				<Route path="./components/Pages/Profile" component={Profile} />
+				<Route path="./components/Pages/User" component={User} />
 			</Router>
 		);
 	}
