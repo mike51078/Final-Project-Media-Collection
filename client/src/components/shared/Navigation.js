@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '@okta/okta-react';
+// new nav with self service 
 
 export default withAuth(
   class Navigation extends React.Component {
