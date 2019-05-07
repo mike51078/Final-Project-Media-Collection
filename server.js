@@ -5,8 +5,8 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const mongojs = require('mongojs');
 
-var databaseUrl = 'final_db';
-var collections = [ 'profile', 'movies' ];
+var databaseUrl = 'media_db';
+var collections = [ 'main' ];
 
 var db = mongojs(databaseUrl, collections);
 
@@ -16,12 +16,32 @@ db.on('error', function(error) {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.post('/add', function(req, res) {
+	db.main.insert(function(err, added) {
+		if (err) {
+			console.log(err);
+		} else {
+			res.json(added);
+		}
+	});
+});
+
 app.get('/', function(req, res) {
 	res.send('Hello World!');
 });
 
 app.get('/all', function(req, res) {
-	db.final_db.find({}, function(err, found) {
+	db.main.find._addSpecial('$orderby', { name: 1 }, function(err, found) {
+		if (err) {
+			console.log(err);
+		} else {
+			res.json(found);
+		}
+	});
+});
+
+app.get('/byName', function(req, res) {
+	db.main.find({ query: { name: name } }, function(err, found) {
 		if (err) {
 			console.log(err);
 		} else {
