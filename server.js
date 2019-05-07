@@ -1,3 +1,4 @@
+const user = require ("./routes/api/users")
 const express = require('express');
 const path = require('path');
 const PORT = process.env.PORT || 3001;
@@ -12,6 +13,8 @@ var db = mongojs(databaseUrl, collections);
 db.on('error', function(error) {
 	console.log('Database Error:', error);
 });
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.post('/add', function(req, res) {
 	db.main.insert(function(err, added) {
@@ -55,9 +58,10 @@ if (process.env.NODE_ENV === 'production') {
 // Send every request to the React app
 // Define any API routes before this runs
 
-// app.get('*', function(req, res) {
-// 	res.sendFile(path.join(__dirname, './client/build/index.html'));
-// });
+app.get('*', function(req, res) {
+	res.sendFile(path.join(__dirname, './client/build/index.html'));
+});
+app.use(user)
 
 app.listen(PORT, function() {
 	console.log(`🌎 ==> API server now on port ${PORT}!`);
