@@ -12,7 +12,8 @@ class Profile extends Component {
 		this.state = {
 			movieNameInput: '',
 			barCodeInput: '',
-			searchMovieName: ''
+			searchMovieName: '',
+			currentUserName: ''
 		};
 	}
 
@@ -37,7 +38,7 @@ class Profile extends Component {
 	onSubmit(f) {
 		f.preventDefault();
 
-		console.log('Form submitted:  ${this.state.movieNameInput}');
+		console.log('Form submitted:');
 		console.log('Movie Name: ${this.state.movieNameInput}');
 		console.log('Bar Code: ${this.state.barCodeInput}');
 
@@ -48,10 +49,17 @@ class Profile extends Component {
 		});
 	}
 
+	componentDidMount() {
+		const idToken = JSON.parse(localStorage.getItem('okta-token-storage'));
+		this.setState({
+			currentUserName: idToken.idToken.claims.name
+		});
+	}
+
 	render() {
 		return (
 			<div>
-				<h1> Welcome *NAME*</h1>
+				<h1> Welcome {currentUserName}</h1>
 				<h3>Movie Collection</h3>
 				<h4>Add to Collection</h4>
 				<form onSubmit={this.onSubmit}>
