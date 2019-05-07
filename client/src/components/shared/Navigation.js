@@ -25,23 +25,79 @@ export default withAuth(
     render() {
       if (this.state.authenticated === null) return null;
       const authNav = this.state.authenticated ? (
-        <ul className="auth-nav">
-          <li>
-            <a
+        <div className="container">
+          <Link className="navbar-brand" to="/">
+            Do i Have this???
+          </Link>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+          >
+            <span className="navbar-toggler-icon" />
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <Link className="nav-link" to="/">
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/User">
+                  User Portal
+                </Link>
+              </li>
+              <li className="nav-item">
+                  <Link className="nav-link" to="/profile">Profile</Link>
+              </li>
+              <li>
+            <a className="nav-link"
               href="javascript:void(0)"
               onClick={() => this.props.auth.logout()}
             >
               Logout
             </a>
           </li>
+            </ul>
+          </div>
+        </div>
+ 
+      ) :
+      
+      (
+       
+        <div className="container">
+          <Link className="navbar-brand" to="/">
+            Do i Have this???
+          </Link>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+          >
+            <span className="navbar-toggler-icon" />
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <Link className="nav-link" to="/">
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/User">
+                  User Portal
+                </Link>
+              </li>
+              <li className="nav-item">
+                  <Link className="nav-link" to="/profile">Profile</Link>
+              </li>
+           
           <li>
-            <Link to="/profile">Profile</Link>
-          </li>
-        </ul>
-      ) : (
-        <ul className="auth-nav">
-          <li>
-            <a
+            <a className="nav-link"
               href="javascript:void(0)"
               onClick={() => this.props.auth.login()}
             >
@@ -49,18 +105,20 @@ export default withAuth(
             </a>
           </li>
           <li>
-            <Link to="/register">Register</Link>
+            <Link className="nav-link" to="/register">Register</Link>
           </li>
-        </ul>
+            </ul>
+          </div>
+        </div>
+     
       );
       return (
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
+        <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
+
+          
+          
             {authNav}
-          </ul>
+         
         </nav>
       );
     }

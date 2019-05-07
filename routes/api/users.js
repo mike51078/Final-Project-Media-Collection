@@ -29,6 +29,7 @@ router.post('/api/users', (req, res, next) => {
       res.send(user);
     })
     .catch(err => {
+      console.log(err)
       res.status(400);
       res.send(err);
     });

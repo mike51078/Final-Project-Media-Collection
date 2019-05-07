@@ -29,6 +29,21 @@ class Navbar extends Component {
                   User Portal
                 </Link>
               </li>
+              <li className="nav-item">
+                  <Link className="nav-link" to="/profile">Profile</Link>
+              </li>
+           
+          <li>
+            <a className="nav-link"
+              href="javascript:void(0)"
+              onClick={() => this.props.auth.login()}
+            >
+              Login
+            </a>
+          </li>
+          <li>
+            <Link className="nav-link" to="/register">Register</Link>
+          </li>
             </ul>
           </div>
         </div>
