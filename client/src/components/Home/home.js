@@ -45,12 +45,13 @@ export default withAuth(
       ) : (
         <div>
           <p className="lead">
-            Please Sign-in or Register  </p>
-          <button className="btn btn-dark btn-lg" onClick={this.login}>
-            Login
+            Sign in or Register for your personal portal
+          </p>
+          <button>
+          <Link className="nav-link" to="/login">Login</Link>
           </button>
-          <button className="btn btn-dark btn-lg" onClick={this.login}>
-            Login
+          <button>
+          <Link className="nav-link" to="/register">Register</Link>
           </button>
         </div>
       );
