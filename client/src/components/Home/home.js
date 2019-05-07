@@ -45,10 +45,13 @@ export default withAuth(
       ) : (
         <div>
           <p className="lead">
-            If you are a new member email support to get started
+            Sign in or Register for your personal portal
           </p>
-          <button className="btn btn-dark btn-lg" onClick={this.login}>
-            Login
+          <button>
+          <Link className="nav-link" to="/login">Login</Link>
+          </button>
+          <button>
+          <Link className="nav-link" to="/register">Register</Link>
           </button>
         </div>
       );

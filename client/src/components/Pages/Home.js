@@ -45,8 +45,10 @@ export default withAuth(
       ) : (
         <div>
           <p className="lead">
-            If you are a new member email support to get started
-          </p>
+            Please Sign-in or Register  </p>
+          <button className="btn btn-dark btn-lg" onClick={this.login}>
+            Login
+          </button>
           <button className="btn btn-dark btn-lg" onClick={this.login}>
             Login
           </button>
