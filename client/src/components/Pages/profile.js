@@ -38,9 +38,9 @@ class Profile extends Component {
 	onSubmit(f) {
 		f.preventDefault();
 
-		console.log('Form submitted:');
-		console.log('Movie Name: ${this.state.movieNameInput}');
-		console.log('Bar Code: ${this.state.barCodeInput}');
+		// console.log('Form submitted:');
+		// console.log('Movie Name: ${this.state.movieNameInput}');
+		// console.log('Bar Code: ${this.state.barCodeInput}');
 
 		this.setState({
 			movieNameInput: '',
@@ -57,6 +57,7 @@ class Profile extends Component {
 	}
 
 	render() {
+		const { currentUserName } = this.state;
 		return (
 			<div>
 				<h1> Welcome {currentUserName}</h1>
