@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const mongojs = require('mongojs');
 const cors = require('cors');
-const mediaRoutes = express.Router();
+const mainRoutes = express.Router();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
@@ -23,27 +23,28 @@ connection.once('open', function() {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use('/media_db', mediaRoutes);
+app.use('/media_db', mainRoutes);
+// app.use(routes);
 
-mediaRoutes.route('/').get(function(req, res) {
-	main.find(function(err, media_db) {
+mainRoutes.route('/').get(function(req, res) {
+	main.find(function(err, main) {
 		if (err) {
 			console.log(err);
 		} else {
-			res.json(media_db);
+			res.json(main);
 		}
 	});
 });
 
-mediaRoutes.route('/:id').get(function(req, res) {
+mainRoutes.route('/:id').get(function(req, res) {
 	let id = req.params.id;
-	main.findById(id, function(err, todo) {
+	main.findById(id, function(err, main) {
 		res.json(main);
 	});
 });
 
-mediaRoutes.route('/update/:id').post(function(req, res) {
-	Main.findById(req.params.id, function(err, todo) {
+mainRoutes.route('/update/:id').post(function(req, res) {
+	main.findById(req.params.id, function(err, main) {
 		if (!main) res.status(404).send('data is not found');
 		else main.media_userID = req.body.media_userID;
 		main.media_movieName = req.body.media_movieName;
@@ -61,7 +62,7 @@ mediaRoutes.route('/update/:id').post(function(req, res) {
 	});
 });
 
-mediaRoutes.route('/add').post(function(req, res) {
+mainRoutes.route('/add').post(function(req, res) {
 	let main = new Main(req.body);
 	main
 		.save()
@@ -72,8 +73,6 @@ mediaRoutes.route('/add').post(function(req, res) {
 			res.status(400).send('Adding new media failed, please try again.');
 		});
 });
-
-app.use('/media_db', mediaRoutes);
 
 // var databaseUrl = 'media_db';
 // var collections = [ 'main' ];
