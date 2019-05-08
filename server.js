@@ -8,7 +8,7 @@ const mediaRoutes = express.Router();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-let main = require('./models/media_model');
+let main = require('./models/main');
 
 app.use(cors());
 app.use(bodyParser.json());
