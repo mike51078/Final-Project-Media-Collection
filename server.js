@@ -24,7 +24,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use('/media_db', mainRoutes);
-// app.use(routes);
 
 mainRoutes.route('/').get(function(req, res) {
 	main.find(function(err, main) {
