@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const mainSchema = new Schema({
+let Main = new Schema({
 	media_userID: {
 		type: Number,
 		required: true
@@ -17,4 +17,4 @@ const mainSchema = new Schema({
 	}
 });
 
-module.exports = mongoose.model('Main', mainSchema);
+module.exports = mongoose.model('Main', Main);
