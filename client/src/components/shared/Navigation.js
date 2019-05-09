@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '@okta/okta-react';
+import './nav.css'
 // new nav with self service 
 
 export default withAuth(
@@ -54,12 +55,12 @@ export default withAuth(
                   <Link className="nav-link" to="/profile">Profile</Link>
               </li>
               <li>
-            <a className="nav-link"
-              href="javascript:void(0)"
+            <button className="nav-link"
+              
               onClick={() => this.props.auth.logout()}
             >
               Logout
-            </a>
+            </button>
           </li>
             </ul>
           </div>
@@ -98,12 +99,12 @@ export default withAuth(
               </li>
            
           <li>
-            <a className="nav-link"
+            <button className="nav-link"
               href="javascript:void(0)"
               onClick={() => this.props.auth.login()}
             >
               Login
-            </a>
+            </button>
           </li>
           <li>
             <Link className="nav-link" to="/register">Register</Link>
