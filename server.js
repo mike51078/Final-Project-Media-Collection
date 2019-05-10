@@ -1,4 +1,4 @@
-const user = require ("./routes/api/users")
+const user = require('./routes/api/users');
 const express = require('express');
 const path = require('path');
 const PORT = process.env.PORT || 3001;
@@ -117,17 +117,27 @@ mainRoutes.route('/add').post(function(req, res) {
 // });
 
 // Serve up static assets (usually on heroku)
+// if (process.env.NODE_ENV === 'production') {
+// 	app.use(express.static('client/build'));
+// }
+
+// // Send every request to the React app
+// // Define any API routes before this runs
+
+// app.get('*', function(req, res) {
+// 	res.sendFile(path.join(__dirname, './client/build/index.html'));
+// });
+app.use(user);
+
+//Serve statric assets if in production
 if (process.env.NODE_ENV === 'production') {
+	//Set static folder
 	app.use(express.static('client/build'));
+
+	app.get('*', (req, res) => {
+		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+	});
 }
-
-// Send every request to the React app
-// Define any API routes before this runs
-
-app.get('*', function(req, res) {
-	res.sendFile(path.join(__dirname, './client/build/index.html'));
-});
-app.use(user)
 
 app.listen(PORT, function() {
 	console.log(`🌎 ==> API server now on port ${PORT}!`);

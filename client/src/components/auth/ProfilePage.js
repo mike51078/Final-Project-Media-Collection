@@ -72,36 +72,37 @@ export default withAuth(
 						<div className="card">
 							<div className="card-header">Movie Collection</div>
 							<div className="card-body">
-								<div className="card-header">Add to Collection</div>
-								<div className="card-body">
-									<div>
-										<label>Movie Name: </label>
-										<input
-											type="text"
-											className="form-control"
-											id="newMovieNameInput"
-											value="Movie Name"
-											value={this.state.movieNameInput}
-											onChange={this.onChangeMovieNameInput}
-										/>
+								<div className="card">
+									<div className="card-header">Add to Collection</div>
+									<div className="card-body">
+										<div>
+											<label>Movie Name</label>
+											<input
+												type="text"
+												className="form-control"
+												id="newMovieNameInput"
+												value="Movie Name"
+												value={this.state.movieNameInput}
+												onChange={this.onChangeMovieNameInput}
+											/>
+										</div>
+										<p> - OR -</p>
+										<div>
+											<label>Barcode</label>
+											<input
+												type="text"
+												className="form-control"
+												id="newMovieBarcodeInput"
+												value="Bar Code"
+												value={this.state.barCodeInput}
+												onChange={this.onChangeBarCode}
+											/>
+										</div>
+										<button type="submit" className="btn btn-light btn-lg" id="newMovieSubmitBtn">
+											Submit
+										</button>
 									</div>
-									<p> - OR -</p>
-									<div>
-										<label>Barcode: </label>
-										<input
-											type="text"
-											className="form-control"
-											id="newMovieBarcodeInput"
-											value="Bar Code"
-											value={this.state.barCodeInput}
-											onChange={this.onChangeBarCode}
-										/>
-									</div>
-									<button type="submit" className="btn btn-light btn-lg" id="newMovieSubmitBtn">
-										Submit
-									</button>
 								</div>
-
 								<div className="card">
 									<div className="card-header">Search By Name</div>
 									<div className="card-body">
